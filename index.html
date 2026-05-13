@@ -42,14 +42,33 @@
   html,body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
 
+  /* ---------- A11Y UTILITIES ---------- */
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+  .skip-link{
+    position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;
+    padding:10px 16px;border-radius:10px;font-weight:500;z-index:100;
+  }
+  .skip-link:focus{left:8px}
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+
   /* ---------- NAV ---------- */
   nav.top{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:24px 48px;font-size:14px;letter-spacing:.02em;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+    padding:18px 48px;font-size:15px;letter-spacing:.02em;gap:8px;
   }
-  nav.top a{position:relative;padding:4px 0}
-  nav.top a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--ink);transition:width .25s}
-  nav.top a:hover::after{width:100%}
+  nav.top .nav-left{display:flex;align-items:center;gap:16px}
+  nav.top a{position:relative;padding:12px 6px;min-height:44px;display:inline-flex;align-items:center}
+  nav.top a::after{content:"";position:absolute;left:6px;right:6px;bottom:6px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  nav.top a:hover::after,nav.top a:focus-visible::after{transform:scaleX(1)}
+  nav.top a.nav-wa{
+    background:var(--green);color:#fff;border-radius:999px;padding:10px 18px;
+    margin-left:auto;font-weight:500;
+  }
+  nav.top a.nav-wa::after{display:none}
+  nav.top a.nav-wa:hover{background:var(--teal)}
   nav.top .brand-mini{display:none}
 
   /* ---------- HERO ---------- */
@@ -59,7 +78,6 @@
   .hand-logo{
     width:min(900px,92vw);height:auto;
     margin:24px auto 32px;display:block;
-    cursor:pointer;
   }
   .hand-logo:hover{animation:logo-wiggle .6s ease-in-out}
   @keyframes logo-wiggle{
@@ -79,10 +97,13 @@
     width:100%;height:auto;display:block;
     animation:baby-bob 3.2s ease-in-out infinite;
     transform-origin:center bottom;
-    cursor:pointer;
   }
   .baby-frame img:hover{
     animation:baby-spin .8s ease-in-out;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .baby-frame img{animation:none}
+    .hand-logo:hover,.baby-frame img:hover{animation:none}
   }
 
   @keyframes baby-bob{
@@ -375,9 +396,6 @@
     background:#fff;border-radius:24px;padding:40px;position:relative;
     box-shadow:0 10px 40px rgba(0,0,0,.06);
   }
-  form.contact-form .heart{
-    position:absolute;top:20px;right:24px;color:var(--pink);font-size:20px;
-  }
   form.contact-form h3{
     font-family:"Gochi Hand",cursive;font-size:44px;margin-bottom:10px;line-height:1;
   }
@@ -385,36 +403,52 @@
   form.contact-form .lead{
     font-family:"Patrick Hand",cursive;color:var(--ink);font-size:16px;margin-bottom:24px;line-height:1.4;
   }
-  form.contact-form label{display:block;margin-bottom:16px}
+  form.contact-form label{display:block;margin-bottom:14px}
+  form.contact-form .lbl{
+    display:block;font-size:13px;color:var(--muted);
+    margin-bottom:4px;letter-spacing:.02em;
+  }
   form.contact-form input,form.contact-form textarea{
-    width:100%;padding:12px 14px;border:1px solid #e5e5e5;border-radius:12px;
-    font-family:inherit;font-size:14px;background:#fafafa;
+    width:100%;padding:14px 14px;border:1px solid #e5e5e5;border-radius:12px;
+    font-family:inherit;font-size:16px;background:#fafafa;min-height:48px;
   }
   form.contact-form input:focus,form.contact-form textarea:focus{
     outline:none;border-color:var(--green);background:#fff;
+    box-shadow:0 0 0 3px rgba(42,157,143,.18);
   }
-  form.contact-form textarea{min-height:100px;resize:vertical}
+  form.contact-form input:invalid:not(:placeholder-shown){border-color:#e63946}
+  form.contact-form textarea{min-height:110px;resize:vertical}
   form.contact-form button{
-    background:var(--ink);color:#fff;border:none;border-radius:10px;
-    padding:12px 24px;font-size:14px;font-weight:500;cursor:pointer;
-    transition:transform .15s;
+    background:var(--ink);color:#fff;border:none;border-radius:999px;
+    padding:14px 28px;font-size:15px;font-weight:500;cursor:pointer;
+    min-height:48px;width:auto;
+    transition:transform .15s,background .15s;
   }
-  form.contact-form button:hover{transform:scale(1.03)}
+  form.contact-form button:hover{transform:translateY(-2px);background:var(--green)}
+  form.contact-form .form-success{
+    margin-top:16px;padding:16px 18px;border-radius:12px;
+    background:#e8f7f4;color:var(--ink);
+    font-family:"Patrick Hand",cursive;font-size:17px;line-height:1.45;
+  }
+  form.contact-form.sent .form-success{display:block}
+  form.contact-form.sent > label,form.contact-form.sent > button,
+  form.contact-form.sent > h3,form.contact-form.sent > .lead{display:none}
 
   /* ---------- FOOTER ---------- */
   footer{padding:32px;text-align:center;color:var(--muted);font-size:13px}
 
   /* ---------- MOBILE ---------- */
   @media (max-width:760px){
-    nav.top{flex-direction:column;gap:8px;padding:16px 24px;align-items:flex-start;font-size:13px}
-    nav.top .brand-mini{display:block;font-family:"Caveat",cursive;font-size:22px;margin-bottom:8px}
-    nav.top .brand-mini{font-family:"Gochi Hand",cursive}
-    nav.top .brand-mini .l1{color:var(--red)}
-    nav.top .brand-mini .l2{color:var(--orange)}
-    nav.top .brand-mini .l3{color:var(--green)}
-    nav.top .brand-mini .l4{color:var(--teal)}
-    nav.top .brand-mini .l5{color:var(--blue)}
-    nav.top .brand-mini .l6{color:var(--purple)}
+    nav.top{
+      padding:12px 16px;gap:6px;font-size:14px;
+      flex-wrap:wrap;justify-content:flex-start;align-items:center;
+    }
+    nav.top .nav-left{flex-basis:100%;justify-content:space-between;margin-bottom:4px}
+    nav.top .brand-mini{display:block;font-family:"Gochi Hand",cursive;font-size:22px}
+    nav.top a{padding:10px 8px;min-height:44px;font-size:14px}
+    nav.top a.nav-wa{
+      margin-left:auto;padding:10px 16px;font-size:14px;
+    }
 
     section.hero{padding-top:8px}
     h1.logo{font-size:80px}
@@ -474,152 +508,184 @@
   </svg>
 
   <div class="baby-frame">
-    <img src="baby.jpg" alt="happy baby" />
+    <img src="baby.jpg" alt="Bebé feliz" />
   </div>
 
-  <p class="tagline">we connect parents with amazing child-care professionals in the south of tenerife</p>
+  <p class="tagline">conectamos a las familias con niñeras profesionales en Tenerife</p>
 </section>
 
 <!-- 3 pillars strip -->
-<section class="pillars">
-  <div class="pillar"><h4 class="rainbow-text">Confianza</h4><p>Trust</p></div>
-  <div class="pillar"><h4 class="rainbow-text">Fiabilidad</h4><p>Reliability</p></div>
-  <div class="pillar"><h4 class="rainbow-text">Seguridad</h4><p>Safety</p></div>
+<section class="pillars" id="valores" aria-label="Nuestros valores">
+  <div class="pillar"><h4 class="rainbow-text">Confianza</h4><p>familias tranquilas</p></div>
+  <div class="pillar"><h4 class="rainbow-text">Fiabilidad</h4><p>niñeras verificadas</p></div>
+  <div class="pillar"><h4 class="rainbow-text">Seguridad</h4><p>niños protegidos</p></div>
 </section>
 
 <section class="block" id="services">
-  <h2 class="section-title rainbow-text">our services</h2>
-  <p class="section-lead">Personalised childcare — from a single evening's babysitter to a full-time live-in carer. Every match is vetted, every family is different.</p>
+  <h2 class="section-title rainbow-text">nuestros servicios</h2>
+  <p class="section-lead">Cuidado infantil personalizado — desde una niñera por horas hasta una <em>niñera permanente</em> de jornada completa. Cada familia es distinta, cada match se verifica.</p>
   <div class="services-grid">
 
     <div class="service-card">
-      <h3 class="rainbow-text">Live-in nannies</h3>
-      <p>A dedicated carer exclusive to your family — long-term continuity, full days, or live-in.</p>
+      <h3 class="rainbow-text">Niñeras permanentes</h3>
+      <p>Un canguro exclusivo para tu familia — continuidad, jornadas completas o régimen interno.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Hourly babysitters</h3>
-      <p>Just a few hours, just when you need them. Date night, work meeting, school pickup.</p>
+      <h3 class="rainbow-text">Niñeras temporales</h3>
+      <p>Solo unas horas, justo cuando las necesitas. Cita, reunión, recogida del cole.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Emergency cover</h3>
-      <p>Same-day cover for urgent situations. We move fast so you don't have to.</p>
+      <h3 class="rainbow-text">Niñera express</h3>
+      <p>Servicio de canguro el mismo día para situaciones urgentes. Nos movemos rápido por ti.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Tutor + nanny</h3>
-      <p>After-school tutoring combined with childcare — homework help and a steady carer in one.</p>
+      <h3 class="rainbow-text">Niñera PLUS</h3>
+      <p>Apoyo escolar a domicilio combinado con cuidado — deberes y una cuidadora estable en uno.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Event childcare</h3>
-      <p>Weddings, birthdays, family gatherings. Full activity setup, materials, and qualified carers.</p>
+      <h3 class="rainbow-text">Niñera en eventos</h3>
+      <p>Bodas, cumpleaños y reuniones familiares. Planificamos actividades, materiales y cuidadoras cualificadas.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Bilingual carers</h3>
-      <p>English &amp; Spanish carers who help kids absorb languages naturally — Melania's specialty.</p>
+      <h3 class="rainbow-text">Niñera bilingüe</h3>
+      <p>Cuidadoras en español e inglés que ayudan a los peques a absorber idiomas de forma natural — la especialidad de Melania.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Care + errands</h3>
-      <p>We watch the little ones and handle the shopping, school run, or appointments while you work.</p>
+      <h3 class="rainbow-text">Servicio de compra</h3>
+      <p>Cuidamos a los peques y nos encargamos de la compra, el cole o las citas mientras trabajas.</p>
     </div>
 
     <div class="service-card">
-      <h3 class="rainbow-text">Outdoor experiences</h3>
-      <p>Beach mornings, pool afternoons, hikes and creative play — planned activities, not just supervision.</p>
+      <h3 class="rainbow-text">Experiencias al aire libre</h3>
+      <p>Mañanas de playa, tardes de piscina, paseos y juego creativo — actividades planificadas, no solo supervisión.</p>
     </div>
 
   </div>
-  <p class="pricing-note">Pricing depends on hours, frequency and service type. <a href="#contact">Tell us what you need</a> and we'll send a personalised quote.</p>
+  <!-- TODO Tino: confirm "desde X €/hora" anchor with Melania (BRIEF §5) -->
+  <p class="pricing-note">Los precios varían según horas, frecuencia y tipo de servicio. <a href="#contact">Cuéntanos lo que necesitas</a> y te enviamos un presupuesto personalizado.</p>
 </section>
 
 <!-- Why us / Ventajas -->
 <section class="block why" id="why">
-  <h2 class="section-title rainbow-text">why parents choose us</h2>
+  <h2 class="section-title rainbow-text">por qué las familias nos eligen</h2>
   <div class="advantages">
-    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Disponibilidad</strong><p>Carers available when you actually need them — last-minute included.</p></div></div>
-    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Experiencia</strong><p>Real CV history, child-development training, references that check out.</p></div></div>
-    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Tranquilidad y seguridad</strong><p>Background checks, reference verification, in-person interviews.</p></div></div>
-    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Servicio personalizado</strong><p>We match the carer to your family, not the other way round.</p></div></div>
-    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Proceso de selección minucioso</strong><p>CV review · interview · references · background check · final skills evaluation.</p></div></div>
-    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Comunicación transparente</strong><p>One contact, clear updates, no surprises.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Disponibilidad</strong><p>Cuidadoras cuando realmente las necesitas — última hora incluida.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Experiencia</strong><p>Historial verificable, formación en desarrollo infantil y referencias que funcionan.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Tranquilidad y seguridad</strong><p>Verificación de antecedentes, comprobación de referencias y entrevistas en persona.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Servicio personalizado</strong><p>Adaptamos la niñera a tu familia, nunca al revés.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Proceso de selección minucioso</strong><p>Revisión de CV · entrevista · referencias · antecedentes · evaluación final de habilidades.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Comunicación transparente</strong><p>Un único contacto, actualizaciones claras, sin sorpresas.</p></div></div>
   </div>
-  <p class="guarantee">Every carer in our network passes the same five-step vetting — that's how we guarantee trust, reliability and safety.</p>
+  <p class="guarantee">Cada <em>niñera</em> de nuestra red pasa el mismo proceso de cinco pasos — así garantizamos <em>confianza, fiabilidad y seguridad</em>.</p>
 </section>
 
 <!-- Process 1-2-3 -->
 <section class="block process" id="how">
-  <h2 class="section-title rainbow-text">how it works</h2>
+  <h2 class="section-title rainbow-text">cómo funciona</h2>
   <ol class="steps">
-    <li><span class="step-n">1</span><h4 class="rainbow-text">Tell us what you need</h4><p>A quick message about your family, your schedule and the kind of care you're looking for.</p></li>
-    <li><span class="step-n">2</span><h4 class="rainbow-text">We match the right carer</h4><p>We hand-pick the carer who best fits your family — not the other way around.</p></li>
-    <li><span class="step-n">3</span><h4 class="rainbow-text">Book your day &amp; breathe</h4><p>Reserve your day and enjoy it. We handle the rest.</p></li>
+    <li><span class="step-n">1</span><h4 class="rainbow-text">Cuéntanos qué necesitas</h4><p>Un mensaje rápido sobre tu familia, tu horario y el tipo de cuidado que buscas.</p></li>
+    <li><span class="step-n">2</span><h4 class="rainbow-text">Te asignamos la niñera ideal</h4><p>Elegimos a mano la cuidadora que mejor se adapta a tu familia — nunca al revés.</p></li>
+    <li><span class="step-n">3</span><h4 class="rainbow-text">Reserva tu día y disfruta</h4><p>¡Reserva tu día y respira! Nosotros nos encargamos del resto.</p></li>
   </ol>
-  <p class="cta-line"><a href="#contact" class="cta-pill">Get in touch →</a></p>
+  <p class="cta-line"><a href="#contact" class="cta-pill">Necesito asesoría →</a></p>
 </section>
 
 <section class="block" id="story">
-  <h2 class="section-title rainbow-text">our story</h2>
+  <h2 class="section-title rainbow-text">nosotros</h2>
   <div class="story typewriter" data-typewriter>
-    <script type="text/template" class="tw-src"><p>child-doo started with one person's obsession — doing childcare properly. <strong>Melania Díaz</strong> spent years working as a nanny with families in England, learning hands-on how to keep kids genuinely entertained as well as safe.</p><p>Back home in Tenerife she trained formally as an <em>Auxiliar de Educación Infantil</em> and worked in kindergartens — putting the professional qualifications behind everything she'd picked up in living rooms and at playgroups.</p><p>Then she added the piece most agencies skip. She specialised in <strong>Child Coaching and Emotional Intelligence</strong>, so the carers in the child-doo network are briefed not just on logistics and safety but on how to support a child's emotional development during every hour they're together.</p><p>She founded child-doo because the service she wanted for her own family didn't exist on the island yet. So she built it — and she vets every carer to the standard she'd use for her own kids.</p><blockquote class="founder-quote"><p>"I firmly believe that nurturing languages from an early age brings real value to a child's development and education."</p><cite>— Melania Díaz, founder</cite></blockquote><p class="story-meta">Auxiliar de Educación Infantil · Kindergarten teacher · Child Coaching &amp; Emotional Intelligence specialist · Years of family nanny experience in England</p></script>
-    <div class="tw-out" aria-live="polite" aria-label="Our story"><span class="tw-caret" aria-hidden="true"></span></div>
+    <script type="text/template" class="tw-src"><p>child-doo was started by <strong>Melania Díaz</strong> — early-years educator, former London-based nanny, and specialist in <span class="rw"><span class="l1">c</span><span class="l2">h</span><span class="l3">i</span><span class="l4">l</span><span class="l5">d</span></span> Coaching and Emotional Intelligence. After years caring for <span class="rw"><span class="l6">f</span><span class="l1">a</span><span class="l2">m</span><span class="l3">i</span><span class="l4">l</span><span class="l5">i</span><span class="l6">e</span><span class="l1">s</span></span> in England, she came home to Tenerife to build the service she always wished families could find here.</p><p>Every <em>niñera</em> in our network is interviewed in person, reference-checked, background-verified and tested on the skills that matter — because that's the standard we'd want for our own <span class="rw"><span class="l1">k</span><span class="l3">i</span><span class="l5">d</span><span class="l6">s</span></span>.</p><blockquote class="founder-quote"><p>"Creo firmemente en la importancia de fomentar los <span class="rw"><span class="l1">i</span><span class="l2">d</span><span class="l3">i</span><span class="l4">o</span><span class="l5">m</span><span class="l6">a</span><span class="l1">s</span></span> desde <span class="rw"><span class="l2">p</span><span class="l3">e</span><span class="l4">q</span><span class="l5">u</span><span class="l6">e</span><span class="l1">ñ</span><span class="l2">o</span><span class="l3">s</span></span>, y considero que aporta un valor adicional en el desarrollo y educación de los <span class="rw"><span class="l4">n</span><span class="l5">i</span><span class="l6">ñ</span><span class="l1">o</span><span class="l2">s</span></span>."</p><cite>— Melania Díaz, fundadora</cite></blockquote><p class="story-meta">Auxiliar de educación infantil · Jardín de infantes · Coaching e Inteligencia Emocional Infantil y Juvenil</p></script>
+    <div class="tw-out" aria-live="polite" aria-label="Nuestra historia"><span class="tw-caret" aria-hidden="true"></span></div>
     <noscript>
-      <p>child-doo started with one person's obsession — doing childcare properly. <strong>Melania Díaz</strong> spent years working as a nanny with families in England, learning hands-on how to keep kids genuinely entertained as well as safe.</p>
-      <p>Back home in Tenerife she trained formally as an <em>Auxiliar de Educación Infantil</em> and worked in kindergartens — putting the professional qualifications behind everything she'd picked up in living rooms and at playgroups.</p>
-      <p>Then she added the piece most agencies skip. She specialised in <strong>Child Coaching and Emotional Intelligence</strong>, so the carers in the child-doo network are briefed not just on logistics and safety but on how to support a child's emotional development during every hour they're together.</p>
-      <p>She founded child-doo because the service she wanted for her own family didn't exist on the island yet. So she built it — and she vets every carer to the standard she'd use for her own kids.</p>
-      <blockquote class="founder-quote"><p>"I firmly believe that nurturing languages from an early age brings real value to a child's development and education."</p><cite>— Melania Díaz, founder</cite></blockquote>
-      <p class="story-meta">Auxiliar de Educación Infantil · Kindergarten teacher · Child Coaching &amp; Emotional Intelligence specialist · Years of family nanny experience in England</p>
+      <p>child-doo was started by <strong>Melania Díaz</strong> — early-years educator, former London-based nanny, and specialist in child Coaching and Emotional Intelligence. After years caring for families in England, she came home to Tenerife to build the service she always wished families could find here.</p>
+      <p>Every <em>niñera</em> in our network is interviewed in person, reference-checked, background-verified and tested on the skills that matter — because that's the standard we'd want for our own kids.</p>
+      <blockquote class="founder-quote"><p>"Creo firmemente en la importancia de fomentar los idiomas desde pequeños, y considero que aporta un valor adicional en el desarrollo y educación de los niños."</p><cite>— Melania Díaz, fundadora</cite></blockquote>
+      <p class="story-meta">Auxiliar de educación infantil · Jardín de infantes · Coaching e Inteligencia Emocional Infantil y Juvenil</p>
     </noscript>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <h2 class="section-title rainbow-text">contact us</h2>
+  <h2 class="section-title rainbow-text">contacto</h2>
   <div class="contact-wrap">
 
     <div class="rainbow-art">
-      <!-- hand-drawn crayon rainbow — revealed with a conic sweep,
-           color names written on top as the sweep passes each arc -->
       <div class="crayon-rainbow">
         <img class="crayon-rainbow-img" src="rainbow.png"
-             alt="A child's crayon drawing of a rainbow with two clouds" />
+             alt="Dibujo de un arcoíris con crayones y dos nubes" />
         <div class="color-words" aria-hidden="true">
-          <span class="w-red">red</span>
-          <span class="w-orange">orange</span>
-          <span class="w-yellow">yellow</span>
-          <span class="w-green">green</span>
-          <span class="w-blue">blue</span>
-          <span class="w-purple">purple</span>
+          <span class="w-red">rojo</span>
+          <span class="w-orange">naranja</span>
+          <span class="w-yellow">amarillo</span>
+          <span class="w-green">verde</span>
+          <span class="w-blue">azul</span>
+          <span class="w-purple">morado</span>
         </div>
       </div>
     </div>
 
-    <form class="contact-form" onsubmit="event.preventDefault();alert('Thanks! We will get back to you soon.');">
-      <span class="heart">♥</span>
-      <h3 class="rainbow-text">Get in touch</h3>
-      <p class="lead">Any questions about a booking or feedback on our service? We'd love to hear from you.</p>
+    <!-- TODO Tino: wire form action to real endpoint + recipient inbox (BRIEF §5) -->
+    <form class="contact-form" id="contactForm" novalidate>
+      <h3 class="rainbow-text">Te escuchamos</h3>
+      <p class="lead">Cuéntanos qué necesitas — tipo de servicio, fechas, edad de los peques — y te respondemos en menos de 24&nbsp;h.</p>
+
       <label>
-        <input type="text" name="name" placeholder="Name" required />
+        <span class="lbl">Nombre</span>
+        <input type="text" name="name" autocomplete="name" placeholder="Tu nombre" required aria-label="Nombre" />
       </label>
       <label>
-        <input type="email" name="email" placeholder="Email address" required />
+        <span class="lbl">Email</span>
+        <input type="email" name="email" autocomplete="email" placeholder="tu@email.com" required aria-label="Correo electrónico" />
       </label>
       <label>
-        <textarea name="message" placeholder="Message" required></textarea>
+        <span class="lbl">Teléfono / WhatsApp</span>
+        <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+34 ..." aria-label="Teléfono o WhatsApp" />
       </label>
-      <button type="submit">Send message</button>
+      <label>
+        <span class="lbl">Mensaje</span>
+        <textarea name="message" placeholder="Cuéntanos sobre tu familia y lo que necesitas." required aria-label="Mensaje"></textarea>
+      </label>
+      <button type="submit">Enviar mensaje</button>
+
+      <div class="form-success" role="status" aria-live="polite" hidden>
+        <strong>¡Gracias!</strong> Recibimos tu mensaje. Te contactamos en menos de 24&nbsp;h.
+      </div>
     </form>
 
   </div>
 </section>
 
-<footer>© child-doo · south of tenerife</footer>
+<footer>© <span id="footerYear">2026</span> CHILD DOO · Tenerife</footer>
 
 <script>
+  // 0) Footer year
+  (function(){
+    const y = document.getElementById('footerYear');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  // 0b) Contact form — inline success (no native alert).
+  // TODO Tino: replace this with a real submit to your endpoint (BRIEF §5).
+  (function(){
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    const success = form.querySelector('.form-success');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.checkValidity()){ form.reportValidity(); return; }
+      // Until a real endpoint is wired, just show the success state.
+      if (success) success.hidden = false;
+      form.classList.add('sent');
+      // Move focus into the confirmation for screen-reader announcement
+      if (success){ success.setAttribute('tabindex','-1'); success.focus(); }
+    });
+  })();
+
   // 1) Colorize every .rainbow-text element letter-by-letter using the brand palette
   (function colorizeRainbowText(){
     const palette = ['#e63946','#f4a261','#e9c46a','#2a9d8f','#06a77d','#4361ee','#7b2cbf','#ff6b9d'];

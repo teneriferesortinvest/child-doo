@@ -1,0 +1,7 @@
+{
+  "root_cause": "No subagent failure occurred — this is a post-build diagnostic on a v0 build. The build is rendered and CSS is complete, but seven BRIEF.md §5 'Decisions still open' items were silently defaulted by Builder instead of being surfaced: (1) domain hard-coded as canonical https://child-doo.com/, (2) form recipient inbox not wired — onsubmit fakes success with alert(), (3) no phone/WhatsApp CTA and LocalBusiness JSON-LD has no telephone, (4) testimonials block from BRIEF §4.1 omitted, (5) no pricing anchor, (6) site shipped EN-primary while BRIEF §2 says ES-primary, (7) service-area scope contradicts itself (hero='south of tenerife', meta='Tenerife'). One additional Builder-side bug independent of BRIEF gaps: <html lang=\"en\"> with bilingual-ES-primary content and ES-alternate og:locale. These will trip downstream gates: a real-form QA test will fail, the LocalBusiness schema will be rejected by Google's Rich Results test for missing required fields once telephone+address are demanded, and Spanish-audience conversion will underperform.",
+  "category": "input_corrupt",
+  "recommended_action": "escalate_to_tino",
+  "patched_input": null,
+  "confidence": 0.85
+}

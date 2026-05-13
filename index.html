@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>child-doo · Niñeras en Tenerife — trusted childcare, babysitters & canguros</title>
+<meta name="description" content="Niñeras confiables y seguras en Tenerife. Trusted bilingual babysitters, live-in nannies, emergency canguros, after-school care and event childcare. We match families with the right carer." />
+<meta name="keywords" content="niñeras, niñera tenerife, babysitter tenerife, canguro tenerife, servicio de canguro, buscar niñeras, niñera bilingüe, apoyo escolar a domicilio, child-doo" />
+<meta property="og:title" content="child-doo · Niñeras en Tenerife" />
+<meta property="og:description" content="Trusted bilingual childcare in the south of Tenerife — niñeras, babysitters, canguros, after-school tutoring and event care." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="logo.png" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://child-doo.com/" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"child-doo",
+  "alternateName":"CHILD DOO",
+  "description":"Trusted nannies, babysitters and canguros in Tenerife. Bilingual carers, vetted CVs, references and background checks.",
+  "image":"logo.png",
+  "founder":{"@type":"Person","name":"Melania Díaz","jobTitle":"CEO & Founder"},
+  "areaServed":{"@type":"Place","name":"Tenerife, Canary Islands"},
+  "serviceType":["Niñeras permanentes","Niñeras temporales","Niñera express","Niñera PLUS","Niñera en eventos","Apoyo escolar a domicilio","Niñera bilingüe","Servicio de canguro"],
+  "knowsLanguage":["es","en"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Sue+Ellen+Francisco&family=Caveat:wght@700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#e63946; --orange:#f4a261; --yellow:#e9c46a; --green:#2a9d8f; --teal:#06a77d;
+    --blue:#1d3557; --indigo:#4361ee; --purple:#7b2cbf; --pink:#ff6b9d;
+    --ink:#1a1a1a; --muted:#6b7280; --bg:#ffffff; --soft:#fde7ef;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- NAV ---------- */
+  nav.top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:24px 48px;font-size:14px;letter-spacing:.02em;
+  }
+  nav.top a{position:relative;padding:4px 0}
+  nav.top a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--ink);transition:width .25s}
+  nav.top a:hover::after{width:100%}
+  nav.top .brand-mini{display:none}
+
+  /* ---------- HERO ---------- */
+  section.hero{
+    text-align:center;padding:32px 24px 80px;
+  }
+  .hand-logo{
+    width:min(900px,92vw);height:auto;
+    margin:24px auto 32px;display:block;
+    cursor:pointer;
+  }
+  .hand-logo:hover{animation:logo-wiggle .6s ease-in-out}
+  @keyframes logo-wiggle{
+    0%,100%{transform:rotate(0)}
+    25%{transform:rotate(-1.5deg) scale(1.02)}
+    75%{transform:rotate(1.5deg) scale(1.02)}
+  }
+  /* nav mini-brand color classes */
+  .l1{color:var(--red)}.l2{color:var(--orange)}.l3{color:var(--green)}
+  .l4{color:var(--teal)}.l5{color:var(--blue)}.l6{color:var(--purple)}
+
+  .baby-frame{
+    width:min(320px,68vw);margin:0 auto;
+    perspective:600px;
+  }
+  .baby-frame img{
+    width:100%;height:auto;display:block;
+    animation:baby-bob 3.2s ease-in-out infinite;
+    transform-origin:center bottom;
+    cursor:pointer;
+  }
+  .baby-frame img:hover{
+    animation:baby-spin .8s ease-in-out;
+  }
+
+  @keyframes baby-bob{
+    0%,100%{transform:translateY(0) rotate(-1.5deg) scale(1)}
+    25%    {transform:translateY(-6px) rotate(1deg) scale(1.02)}
+    50%    {transform:translateY(-10px) rotate(-.5deg) scale(1.03)}
+    75%    {transform:translateY(-4px) rotate(1.5deg) scale(1.01)}
+  }
+  @keyframes baby-spin{
+    0%   {transform:translateY(-10px) rotate(0)    scale(1.05)}
+    50%  {transform:translateY(-20px) rotate(8deg) scale(1.08)}
+    100% {transform:translateY(0)     rotate(-1.5deg) scale(1)}
+  }
+
+  p.tagline{
+    font-family:"Patrick Hand",cursive;
+    color:var(--green);font-size:clamp(16px,2.2vw,22px);
+    margin-top:32px;letter-spacing:.01em;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.block{padding:96px 48px;border-top:1px solid #eee}
+  h2.section-title{
+    font-family:"Gochi Hand",cursive;font-size:clamp(44px,7vw,84px);
+    text-align:center;margin-bottom:48px;line-height:1;letter-spacing:.02em;
+  }
+  /* rainbow-text helper: letters auto-colored via JS at page load */
+  .rainbow-text span{display:inline-block;transition:transform .2s}
+  .rainbow-text span:hover{transform:translateY(-6px) rotate(-4deg) scale(1.1)}
+  .rainbow-text span.space{width:.35em}
+
+  .section-lead{
+    max-width:680px;margin:-24px auto 48px;text-align:center;color:var(--muted);font-size:16px;
+  }
+  .section-lead em{font-style:normal;color:var(--blue);font-weight:500}
+
+  .services-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:28px;max-width:1100px;margin:0 auto;
+  }
+  .service-card{
+    border:2px dashed #ddd;border-radius:28px;padding:32px 24px 28px;text-align:center;
+    transition:transform .25s,border-color .25s,background .25s,rotate .25s;
+    rotate:-1deg;
+  }
+  .service-card:nth-child(even){rotate:1deg}
+  .service-card:nth-child(3n){rotate:-.5deg}
+  .service-card:hover{transform:translateY(-6px);border-color:var(--green);background:#fafffe;rotate:0deg}
+  .service-card h3{
+    font-family:"Gochi Hand",cursive;font-size:28px;margin-bottom:6px;line-height:1;
+  }
+  .service-card h3 span{display:inline-block}
+  .service-card .es-tag{
+    font-family:"Patrick Hand",cursive;font-size:15px;color:var(--green);
+    margin-bottom:14px;letter-spacing:.02em;
+  }
+  .service-card p{color:var(--muted);font-size:13.5px;line-height:1.55}
+  .service-card p em{font-style:normal;color:var(--ink);font-weight:500}
+
+  .pricing-note{
+    text-align:center;margin-top:48px;color:var(--muted);font-size:14px;
+  }
+  .pricing-note a{color:var(--green);font-weight:500;border-bottom:1px dashed var(--green)}
+
+  /* ---------- PILLARS ---------- */
+  section.pillars{
+    display:flex;justify-content:center;gap:56px;flex-wrap:wrap;
+    padding:64px 24px;border-top:1px solid #eee;
+  }
+  .pillar{text-align:center;min-width:140px}
+  .pillar h4{
+    font-family:"Gochi Hand",cursive;font-size:clamp(36px,5vw,52px);
+    line-height:1;margin-bottom:6px;
+  }
+  .pillar h4 span{display:inline-block;transition:transform .25s}
+  .pillar h4 span:hover{transform:translateY(-4px) rotate(-3deg)}
+  .pillar p{
+    font-family:"Patrick Hand",cursive;
+    color:var(--muted);font-size:14px;letter-spacing:.05em;
+  }
+
+  /* ---------- WHY / VENTAJAS ---------- */
+  section.why{background:#fafafa}
+  .advantages{
+    max-width:920px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;
+  }
+  .advantage{display:flex;gap:16px;align-items:flex-start}
+  .advantage .check{
+    flex-shrink:0;width:32px;height:32px;margin-top:2px;
+  }
+  .advantage .check svg{width:100%;height:100%;overflow:visible}
+  .advantage .check path{
+    fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:100;stroke-dashoffset:100;
+  }
+  .advantage:nth-child(1) .check path{stroke:var(--red)}
+  .advantage:nth-child(2) .check path{stroke:var(--orange)}
+  .advantage:nth-child(3) .check path{stroke:var(--green)}
+  .advantage:nth-child(4) .check path{stroke:var(--teal)}
+  .advantage:nth-child(5) .check path{stroke:var(--blue)}
+  .advantage:nth-child(6) .check path{stroke:var(--purple)}
+  section.why.in-view .check path{animation:draw-check .5s ease-out forwards}
+  .advantage:nth-child(1) .check path{animation-delay:.1s}
+  .advantage:nth-child(2) .check path{animation-delay:.25s}
+  .advantage:nth-child(3) .check path{animation-delay:.4s}
+  .advantage:nth-child(4) .check path{animation-delay:.55s}
+  .advantage:nth-child(5) .check path{animation-delay:.7s}
+  .advantage:nth-child(6) .check path{animation-delay:.85s}
+  @keyframes draw-check{to{stroke-dashoffset:0}}
+  .advantage strong{
+    display:block;font-family:"Gochi Hand",cursive;font-size:22px;
+    color:var(--ink);margin-bottom:4px;line-height:1.1;
+  }
+  .advantage p{color:var(--muted);font-size:14px;line-height:1.5}
+  .guarantee{
+    max-width:680px;margin:56px auto 0;text-align:center;
+    font-family:"Patrick Hand",cursive;font-size:20px;color:var(--ink);
+  }
+  .guarantee em{font-style:normal;color:var(--green);font-weight:500}
+
+  /* ---------- PROCESS STEPS ---------- */
+  section.process{padding-bottom:80px}
+  ol.steps{
+    list-style:none;max-width:920px;margin:0 auto;padding:0;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;
+  }
+  ol.steps li{text-align:center;position:relative}
+  .step-n{
+    display:inline-flex;width:80px;height:80px;
+    align-items:center;justify-content:center;
+    font-family:"Gochi Hand",cursive;font-size:64px;font-weight:400;
+    margin-bottom:18px;line-height:1;
+    border:3px solid currentColor;border-radius:50%;
+    background:transparent;
+    rotate:-4deg;transition:rotate .25s,transform .25s;
+  }
+  ol.steps li:hover .step-n{rotate:4deg;transform:scale(1.05)}
+  ol.steps li:nth-child(1) .step-n{color:var(--red)}
+  ol.steps li:nth-child(2) .step-n{color:var(--orange)}
+  ol.steps li:nth-child(3) .step-n{color:var(--purple)}
+  ol.steps h4{
+    font-family:"Gochi Hand",cursive;font-size:26px;margin-bottom:8px;line-height:1.1;
+  }
+  ol.steps p{
+    font-family:"Patrick Hand",cursive;
+    color:var(--ink);font-size:16px;max-width:260px;margin:0 auto;line-height:1.5;
+  }
+
+  .cta-line{text-align:center;margin-top:48px}
+  .cta-pill{
+    display:inline-block;background:var(--ink);color:#fff;
+    padding:14px 28px;border-radius:999px;font-weight:500;
+    transition:transform .15s,background .15s;
+  }
+  .cta-pill:hover{transform:translateY(-2px);background:var(--green)}
+
+  /* ---------- STORY ---------- */
+  .story{
+    max-width:680px;margin:0 auto;text-align:center;
+    font-size:18px;color:#333;line-height:1.7;
+  }
+  .story p+p{margin-top:20px}
+
+  /* aligned typography inside the story typewriter output */
+  .typewriter .tw-out{min-height:9em;text-align:center}
+  .typewriter .tw-out p{
+    max-width:680px;margin:0 auto 22px;
+    font-size:18px;line-height:1.75;color:#333;
+    font-family:"Inter",system-ui,sans-serif;
+  }
+  .typewriter .tw-out strong{
+    font-family:"Patrick Hand",cursive;font-weight:400;
+    color:var(--blue);font-size:1.22em;letter-spacing:.01em;
+  }
+  .typewriter .tw-out em{
+    font-family:"Patrick Hand",cursive;font-style:normal;
+    color:var(--green);font-size:1.1em;letter-spacing:.01em;
+  }
+  .typewriter .founder-quote{
+    margin:36px auto;padding:26px 30px;max-width:560px;
+    border-left:4px solid var(--green);background:#fafffe;
+    text-align:left;border-radius:0 14px 14px 0;
+  }
+  .typewriter .founder-quote p{
+    font-family:"Patrick Hand",cursive;
+    font-size:22px;color:var(--ink);font-style:italic;
+    line-height:1.55;margin-bottom:10px;
+  }
+  .typewriter .founder-quote cite{
+    display:block;font-family:"Caveat",cursive;font-style:normal;
+    font-weight:700;font-size:24px;color:var(--blue);
+    margin-top:6px;letter-spacing:.01em;
+  }
+  .typewriter .story-meta{
+    font-family:"Patrick Hand",cursive;font-size:14px;color:var(--muted);
+    text-transform:none;letter-spacing:.02em;margin-top:28px;
+  }
+
+  /* rainbow keyword — each letter in a different brand color */
+  .rw{
+    font-family:"Gochi Hand",cursive;font-weight:400;
+    letter-spacing:.02em;font-size:1.18em;
+    display:inline-block;
+  }
+  .rw .l1{color:var(--red)}
+  .rw .l2{color:var(--orange)}
+  .rw .l3{color:var(--green)}
+  .rw .l4{color:var(--teal)}
+  .rw .l5{color:var(--blue)}
+  .rw .l6{color:var(--purple)}
+
+  /* blinking typewriter caret */
+  .tw-caret{
+    display:inline-block;width:2px;height:1.05em;
+    background:var(--blue);vertical-align:text-bottom;
+    margin-left:2px;animation:caret-blink 1s steps(1) infinite;
+  }
+  @keyframes caret-blink{50%{opacity:0}}
+  .typewriter.done .tw-caret{display:none}
+
+  @media (prefers-reduced-motion: reduce){
+    .tw-caret{animation:none;display:none}
+  }
+
+  /* ---------- CONTACT ---------- */
+  section.contact{
+    background:var(--soft);padding:96px 48px;
+  }
+  .contact-wrap{
+    max-width:1100px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  }
+  .rainbow-art{display:flex;justify-content:center}
+  .rainbow-art svg.crayon-rainbow{width:100%;max-width:460px;height:auto}
+  .crayon-rainbow .arcs path{
+    stroke-dasharray:100;stroke-dashoffset:100;
+  }
+  .contact.in-view .crayon-rainbow .arcs path{
+    animation:draw-arc .8s ease-out forwards;
+  }
+  .contact.in-view .crayon-rainbow .arcs path:nth-child(1){animation-delay:.1s}
+  .contact.in-view .crayon-rainbow .arcs path:nth-child(2){animation-delay:.4s}
+  .contact.in-view .crayon-rainbow .arcs path:nth-child(3){animation-delay:.7s}
+  .contact.in-view .crayon-rainbow .arcs path:nth-child(4){animation-delay:1.0s}
+  .contact.in-view .crayon-rainbow .arcs path:nth-child(5){animation-delay:1.3s}
+  .contact.in-view .crayon-rainbow .arcs path:nth-child(6){animation-delay:1.6s}
+  .contact.in-view .crayon-rainbow .clouds{
+    animation:cloud-pop .6s ease-out forwards;animation-delay:2.1s;
+  }
+  @keyframes draw-arc{to{stroke-dashoffset:0}}
+  @keyframes cloud-pop{
+    0%{opacity:0;transform:translateY(8px) scale(.94)}
+    100%{opacity:.85;transform:translateY(0) scale(1)}
+  }
+
+  form.contact-form{
+    background:#fff;border-radius:24px;padding:40px;position:relative;
+    box-shadow:0 10px 40px rgba(0,0,0,.06);
+  }
+  form.contact-form .heart{
+    position:absolute;top:20px;right:24px;color:var(--pink);font-size:20px;
+  }
+  form.contact-form h3{
+    font-family:"Gochi Hand",cursive;font-size:44px;margin-bottom:10px;line-height:1;
+  }
+  form.contact-form h3 span{display:inline-block}
+  form.contact-form .lead{
+    font-family:"Patrick Hand",cursive;color:var(--ink);font-size:16px;margin-bottom:24px;line-height:1.4;
+  }
+  form.contact-form label{display:block;margin-bottom:16px}
+  form.contact-form input,form.contact-form textarea{
+    width:100%;padding:12px 14px;border:1px solid #e5e5e5;border-radius:12px;
+    font-family:inherit;font-size:14px;background:#fafafa;
+  }
+  form.contact-form input:focus,form.contact-form textarea:focus{
+    outline:none;border-color:var(--green);background:#fff;
+  }
+  form.contact-form textarea{min-height:100px;resize:vertical}
+  form.contact-form button{
+    background:var(--ink);color:#fff;border:none;border-radius:10px;
+    padding:12px 24px;font-size:14px;font-weight:500;cursor:pointer;
+    transition:transform .15s;
+  }
+  form.contact-form button:hover{transform:scale(1.03)}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:32px;text-align:center;color:var(--muted);font-size:13px}
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:760px){
+    nav.top{flex-direction:column;gap:8px;padding:16px 24px;align-items:flex-start;font-size:13px}
+    nav.top .brand-mini{display:block;font-family:"Caveat",cursive;font-size:22px;margin-bottom:8px}
+    nav.top .brand-mini{font-family:"Gochi Hand",cursive}
+    nav.top .brand-mini .l1{color:var(--red)}
+    nav.top .brand-mini .l2{color:var(--orange)}
+    nav.top .brand-mini .l3{color:var(--green)}
+    nav.top .brand-mini .l4{color:var(--teal)}
+    nav.top .brand-mini .l5{color:var(--blue)}
+    nav.top .brand-mini .l6{color:var(--purple)}
+
+    section.hero{padding-top:8px}
+    h1.logo{font-size:80px}
+    section.block{padding:64px 24px}
+    section.contact{padding:64px 24px}
+    .contact-wrap{grid-template-columns:1fr;gap:32px}
+    .rainbow-art{order:2}
+    form.contact-form{padding:28px;order:1}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div>
+    <div class="brand-mini" aria-hidden="true">
+      <span class="l1">c</span><span class="l2">h</span><span class="l3">i</span><span class="l4">l</span><span class="l5">d</span> <span class="l4">d</span><span class="l5">o</span><span class="l6">o</span>.
+    </div>
+    <a href="#contact">contact us.</a>
+  </div>
+  <a href="#services">our services</a>
+  <a href="#story">our story</a>
+</nav>
+
+<section class="hero">
+  <svg class="hand-logo" viewBox="0 0 1850 456" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="child-doo">
+    <defs>
+      <!-- 9 clipPath wipes, each reveals one letter region left-to-right in sequence -->
+      <clipPath id="cp1"><rect x="0"    y="0" height="456" width="0"><animate attributeName="width" from="0" to="240"  dur=".55s" begin="0.1s"  fill="freeze"/></rect></clipPath>
+      <clipPath id="cp2"><rect x="240"  y="0" height="456" width="0"><animate attributeName="width" from="0" to="200"  dur=".50s" begin="0.55s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp3"><rect x="440"  y="0" height="456" width="0"><animate attributeName="width" from="0" to="120"  dur=".35s" begin="0.95s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp4"><rect x="560"  y="0" height="456" width="0"><animate attributeName="width" from="0" to="180"  dur=".45s" begin="1.20s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp5"><rect x="740"  y="0" height="456" width="0"><animate attributeName="width" from="0" to="220"  dur=".50s" begin="1.55s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp6"><rect x="960"  y="0" height="456" width="0"><animate attributeName="width" from="0" to="180"  dur=".30s" begin="1.95s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp7"><rect x="1140" y="0" height="456" width="0"><animate attributeName="width" from="0" to="240"  dur=".50s" begin="2.15s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp8"><rect x="1380" y="0" height="456" width="0"><animate attributeName="width" from="0" to="240"  dur=".50s" begin="2.55s" fill="freeze"/></rect></clipPath>
+      <clipPath id="cp9"><rect x="1620" y="0" height="456" width="0"><animate attributeName="width" from="0" to="230"  dur=".50s" begin="2.95s" fill="freeze"/></rect></clipPath>
+    </defs>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp1)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp2)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp3)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp4)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp5)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp6)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp7)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp8)"/>
+    <image href="logo.png" width="1850" height="456" clip-path="url(#cp9)"/>
+  </svg>
+
+  <div class="baby-frame">
+    <img src="baby.jpg" alt="happy baby" />
+  </div>
+
+  <p class="tagline">we connect parents with amazing child-care professionals in the south of tenerife</p>
+</section>
+
+<!-- 3 pillars strip -->
+<section class="pillars">
+  <div class="pillar"><h4 class="rainbow-text">Confianza</h4><p>Trust</p></div>
+  <div class="pillar"><h4 class="rainbow-text">Fiabilidad</h4><p>Reliability</p></div>
+  <div class="pillar"><h4 class="rainbow-text">Seguridad</h4><p>Safety</p></div>
+</section>
+
+<section class="block" id="services">
+  <h2 class="section-title rainbow-text">our services</h2>
+  <p class="section-lead">Personalised childcare — from a single evening's babysitter to a full-time live-in carer. Every match is vetted, every family is different.</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Live-in nannies</h3>
+      <p>A dedicated carer exclusive to your family — long-term continuity, full days, or live-in.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Hourly babysitters</h3>
+      <p>Just a few hours, just when you need them. Date night, work meeting, school pickup.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Emergency cover</h3>
+      <p>Same-day cover for urgent situations. We move fast so you don't have to.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Tutor + nanny</h3>
+      <p>After-school tutoring combined with childcare — homework help and a steady carer in one.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Event childcare</h3>
+      <p>Weddings, birthdays, family gatherings. Full activity setup, materials, and qualified carers.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Bilingual carers</h3>
+      <p>English &amp; Spanish carers who help kids absorb languages naturally — Melania's specialty.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Care + errands</h3>
+      <p>We watch the little ones and handle the shopping, school run, or appointments while you work.</p>
+    </div>
+
+    <div class="service-card">
+      <h3 class="rainbow-text">Outdoor experiences</h3>
+      <p>Beach mornings, pool afternoons, hikes and creative play — planned activities, not just supervision.</p>
+    </div>
+
+  </div>
+  <p class="pricing-note">Pricing depends on hours, frequency and service type. <a href="#contact">Tell us what you need</a> and we'll send a personalised quote.</p>
+</section>
+
+<!-- Why us / Ventajas -->
+<section class="block why" id="why">
+  <h2 class="section-title rainbow-text">why parents choose us</h2>
+  <div class="advantages">
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Disponibilidad</strong><p>Carers available when you actually need them — last-minute included.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Experiencia</strong><p>Real CV history, child-development training, references that check out.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Tranquilidad y seguridad</strong><p>Background checks, reference verification, in-person interviews.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Servicio personalizado</strong><p>We match the carer to your family, not the other way round.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Proceso de selección minucioso</strong><p>CV review · interview · references · background check · final skills evaluation.</p></div></div>
+    <div class="advantage"><span class="check"><svg viewBox="0 0 32 32"><path d="M5,17 Q11,25 14,23 Q22,12 28,5" pathLength="100"/></svg></span><div><strong>Comunicación transparente</strong><p>One contact, clear updates, no surprises.</p></div></div>
+  </div>
+  <p class="guarantee">Every carer in our network passes the same five-step vetting — that's how we guarantee trust, reliability and safety.</p>
+</section>
+
+<!-- Process 1-2-3 -->
+<section class="block process" id="how">
+  <h2 class="section-title rainbow-text">how it works</h2>
+  <ol class="steps">
+    <li><span class="step-n">1</span><h4 class="rainbow-text">Tell us what you need</h4><p>A quick message about your family, your schedule and the kind of care you're looking for.</p></li>
+    <li><span class="step-n">2</span><h4 class="rainbow-text">We match the right carer</h4><p>We hand-pick the carer who best fits your family — not the other way around.</p></li>
+    <li><span class="step-n">3</span><h4 class="rainbow-text">Book your day &amp; breathe</h4><p>Reserve your day and enjoy it. We handle the rest.</p></li>
+  </ol>
+  <p class="cta-line"><a href="#contact" class="cta-pill">Get in touch →</a></p>
+</section>
+
+<section class="block" id="story">
+  <h2 class="section-title rainbow-text">our story</h2>
+  <div class="story typewriter" data-typewriter>
+    <script type="text/template" class="tw-src"><p>child-doo was started by <strong>Melania Díaz</strong> — early-years educator, former London-based nanny, and specialist in <span class="rw"><span class="l1">c</span><span class="l2">h</span><span class="l3">i</span><span class="l4">l</span><span class="l5">d</span></span> Coaching and Emotional Intelligence. After years caring for <span class="rw"><span class="l6">f</span><span class="l1">a</span><span class="l2">m</span><span class="l3">i</span><span class="l4">l</span><span class="l5">i</span><span class="l6">e</span><span class="l1">s</span></span> in England, she came home to Tenerife to build the service she always wished families could find here.</p><p>Every <em>niñera</em> in our network is interviewed in person, reference-checked, background-verified and tested on the skills that matter — because that's the standard we'd want for our own <span class="rw"><span class="l1">k</span><span class="l3">i</span><span class="l5">d</span><span class="l6">s</span></span>.</p><blockquote class="founder-quote"><p>"Creo firmemente en la importancia de fomentar los <span class="rw"><span class="l1">i</span><span class="l2">d</span><span class="l3">i</span><span class="l4">o</span><span class="l5">m</span><span class="l6">a</span><span class="l1">s</span></span> desde <span class="rw"><span class="l2">p</span><span class="l3">e</span><span class="l4">q</span><span class="l5">u</span><span class="l6">e</span><span class="l1">ñ</span><span class="l2">o</span><span class="l3">s</span></span>, y considero que aporta un valor adicional en el desarrollo y educación de los <span class="rw"><span class="l4">n</span><span class="l5">i</span><span class="l6">ñ</span><span class="l1">o</span><span class="l2">s</span></span>."</p><cite>— Melania Díaz, fundadora</cite></blockquote><p class="story-meta">Auxiliar de educación infantil · Jardín de infantes · Coaching e Inteligencia Emocional Infantil y Juvenil</p></script>
+    <div class="tw-out" aria-live="polite" aria-label="Our story"><span class="tw-caret" aria-hidden="true"></span></div>
+    <noscript>
+      <p>child-doo was started by <strong>Melania Díaz</strong> — early-years educator, former London-based nanny, and specialist in child Coaching and Emotional Intelligence. After years caring for families in England, she came home to Tenerife to build the service she always wished families could find here.</p>
+      <p>Every <em>niñera</em> in our network is interviewed in person, reference-checked, background-verified and tested on the skills that matter — because that's the standard we'd want for our own kids.</p>
+      <blockquote class="founder-quote"><p>"Creo firmemente en la importancia de fomentar los idiomas desde pequeños, y considero que aporta un valor adicional en el desarrollo y educación de los niños."</p><cite>— Melania Díaz, fundadora</cite></blockquote>
+      <p class="story-meta">Auxiliar de educación infantil · Jardín de infantes · Coaching e Inteligencia Emocional Infantil y Juvenil</p>
+    </noscript>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="section-title rainbow-text">contact us</h2>
+  <div class="contact-wrap">
+
+    <div class="rainbow-art" aria-hidden="true">
+      <!-- crayon rainbow + scribbled clouds, drawn on scroll into view -->
+      <svg class="crayon-rainbow" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+        <g class="arcs" fill="none" stroke-linecap="round" stroke-width="28">
+          <path d="M40,290 Q60,260 90,235 Q160,170 250,160 Q345,170 415,235 Q445,260 460,290" stroke="#e63946" pathLength="100"/>
+          <path d="M70,290 Q90,265 120,245 Q180,195 250,188 Q325,195 385,245 Q415,265 430,290" stroke="#f4a261" pathLength="100"/>
+          <path d="M100,290 Q120,270 145,255 Q200,220 250,214 Q305,220 360,255 Q385,270 400,290" stroke="#e9c46a" pathLength="100"/>
+          <path d="M130,290 Q150,275 170,265 Q215,242 250,239 Q290,242 335,265 Q355,275 370,290" stroke="#2a9d8f" pathLength="100"/>
+          <path d="M160,290 Q175,280 195,272 Q225,260 250,258 Q280,260 310,272 Q330,280 340,290" stroke="#4361ee" pathLength="100"/>
+          <path d="M190,290 Q205,283 220,278 Q237,272 250,272 Q268,272 285,278 Q302,283 310,290" stroke="#7b2cbf" pathLength="100"/>
+        </g>
+        <!-- scribbled gray clouds at base -->
+        <g class="clouds" fill="#bbb" stroke="#888" stroke-width="2" stroke-linejoin="round" opacity="0">
+          <path d="M30,305 C25,290 50,280 70,288 C80,275 110,278 115,295 C130,290 145,305 135,318 C145,328 130,340 110,335 C100,348 70,346 60,335 C40,340 20,325 30,305 Z"/>
+          <path d="M340,300 C335,288 360,278 380,288 C395,275 425,282 425,300 C440,300 450,318 435,328 C445,340 425,348 410,340 C400,352 370,348 365,335 C345,338 330,318 340,300 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <form class="contact-form" onsubmit="event.preventDefault();alert('Thanks! We will get back to you soon.');">
+      <span class="heart">♥</span>
+      <h3 class="rainbow-text">Get in touch</h3>
+      <p class="lead">Any questions about a booking or feedback on our service? We'd love to hear from you.</p>
+      <label>
+        <input type="text" name="name" placeholder="Name" required />
+      </label>
+      <label>
+        <input type="email" name="email" placeholder="Email address" required />
+      </label>
+      <label>
+        <textarea name="message" placeholder="Message" required></textarea>
+      </label>
+      <button type="submit">Send message</button>
+    </form>
+
+  </div>
+</section>
+
+<footer>© child-doo · south of tenerife</footer>
+
+<script>
+  // 1) Colorize every .rainbow-text element letter-by-letter using the brand palette
+  (function colorizeRainbowText(){
+    const palette = ['#e63946','#f4a261','#e9c46a','#2a9d8f','#06a77d','#4361ee','#7b2cbf','#ff6b9d'];
+    document.querySelectorAll('.rainbow-text').forEach(el => {
+      const text = el.textContent;
+      const offset = Math.floor(Math.random() * palette.length); // each title starts on a different color
+      el.innerHTML = [...text].map((ch, i) => {
+        if (ch === ' ') return '<span class="space">&nbsp;</span>';
+        const color = palette[(i + offset) % palette.length];
+        return `<span style="color:${color}">${ch}</span>`;
+      }).join('');
+    });
+  })();
+
+  // 2) IntersectionObserver: add .in-view to any section that has scroll-triggered animations
+  (function scrollAnimate(){
+    const targets = document.querySelectorAll('.contact, .why');
+    if (!('IntersectionObserver' in window)){
+      targets.forEach(t => t.classList.add('in-view'));
+      return;
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting){
+          e.target.classList.add('in-view');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    targets.forEach(t => obs.observe(t));
+  })();
+</script>
+
+</body>
+</html>

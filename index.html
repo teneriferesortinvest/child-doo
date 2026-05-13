@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>child-doo · Niñeras en Tenerife — trusted childcare, babysitters & canguros</title>
-<meta name="description" content="Niñeras confiables y seguras en Tenerife. Trusted bilingual babysitters, live-in nannies, emergency canguros, after-school care and event childcare. We match families with the right carer." />
+<title>Niñeras en Tenerife · CHILD DOO — confianza y seguridad</title>
+<meta name="description" content="Niñeras confiables y seguras en Tenerife. Servicio personalizado de niñera, canguro y apoyo escolar. Encuentra a la niñera ideal con CHILD DOO." />
 <meta name="keywords" content="niñeras, niñera tenerife, babysitter tenerife, canguro tenerife, servicio de canguro, buscar niñeras, niñera bilingüe, apoyo escolar a domicilio, child-doo" />
-<meta property="og:title" content="child-doo · Niñeras en Tenerife" />
-<meta property="og:description" content="Trusted bilingual childcare in the south of Tenerife — niñeras, babysitters, canguros, after-school tutoring and event care." />
+<meta property="og:title" content="Niñeras en Tenerife · CHILD DOO" />
+<meta property="og:description" content="Niñeras confiables y seguras en Tenerife. Canguros, apoyo escolar a domicilio y niñeras bilingües." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="logo.png" />
-<meta property="og:locale" content="en_GB" />
-<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:locale:alternate" content="en_GB" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="canonical" href="https://child-doo.com/" />
+<!-- TODO Tino: confirm domain (BRIEF §5) then uncomment canonical -->
+<!-- <link rel="canonical" href="https://child-doo.com/" /> -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"LocalBusiness",
-  "name":"child-doo",
-  "alternateName":"CHILD DOO",
-  "description":"Trusted nannies, babysitters and canguros in Tenerife. Bilingual carers, vetted CVs, references and background checks.",
+  "name":"CHILD DOO",
+  "alternateName":"child-doo",
+  "description":"Niñeras confiables y seguras en Tenerife. Servicio personalizado de niñera, canguro, apoyo escolar y niñera bilingüe.",
   "image":"logo.png",
-  "founder":{"@type":"Person","name":"Melania Díaz","jobTitle":"CEO & Founder"},
-  "areaServed":{"@type":"Place","name":"Tenerife, Canary Islands"},
+  "founder":{"@type":"Person","name":"Melania Díaz","jobTitle":"CEO & Fundadora"},
+  "areaServed":{"@type":"Place","name":"Tenerife, Islas Canarias"},
   "serviceType":["Niñeras permanentes","Niñeras temporales","Niñera express","Niñera PLUS","Niñera en eventos","Apoyo escolar a domicilio","Niñera bilingüe","Servicio de canguro"],
   "knowsLanguage":["es","en"]
 }
@@ -316,26 +317,58 @@
     display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
   }
   .rainbow-art{display:flex;justify-content:center}
-  .rainbow-art svg.crayon-rainbow{width:100%;max-width:460px;height:auto}
-  .crayon-rainbow .arcs path{
-    stroke-dasharray:100;stroke-dashoffset:100;
+  .rainbow-art .crayon-rainbow{position:relative;width:100%;max-width:460px}
+  .rainbow-art img.crayon-rainbow-img{width:100%;height:auto;display:block}
+
+  /* handwritten color names layered over the rainbow */
+  .color-words{position:absolute;inset:0;pointer-events:none;
+    font-family:"Patrick Hand","Caveat",cursive;font-weight:700}
+  .color-words span{
+    position:absolute;font-size:18px;
+    opacity:0;transform:translateY(8px) rotate(var(--r,0deg));
+    transition:opacity .35s ease-out, transform .35s ease-out;
+    text-shadow:0 1px 0 rgba(255,255,255,.85),0 0 6px rgba(255,255,255,.6);
+    white-space:nowrap;
   }
-  .contact.in-view .crayon-rainbow .arcs path{
-    animation:draw-arc .8s ease-out forwards;
+  .color-words .w-red   {top:6%;  left:8%;  color:#d62828;--r:-12deg}
+  .color-words .w-orange{top:14%; right:8%; color:#e76f51;--r:10deg}
+  .color-words .w-yellow{top:26%; left:18%; color:#d4a017;--r:-6deg}
+  .color-words .w-green {top:34%; right:18%;color:#2a9d8f;--r:8deg}
+  .color-words .w-blue  {top:46%; left:33%; color:#3a56d4;--r:-4deg}
+  .color-words .w-purple{top:54%; right:33%;color:#7b2cbf;--r:6deg}
+
+  /* sweep-reveal mask: conic wedge expands from the left cloud, up over
+     the top, down to the right cloud — like a crayon being drawn. */
+  @property --sweep{syntax:"<angle>";inherits:false;initial-value:0deg}
+  .crayon-rainbow-img{
+    --sweep:0deg;
+    -webkit-mask-image:conic-gradient(from 270deg at 50% 100%,
+      #000 0deg, #000 var(--sweep), transparent var(--sweep));
+            mask-image:conic-gradient(from 270deg at 50% 100%,
+      #000 0deg, #000 var(--sweep), transparent var(--sweep));
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   }
-  .contact.in-view .crayon-rainbow .arcs path:nth-child(1){animation-delay:.1s}
-  .contact.in-view .crayon-rainbow .arcs path:nth-child(2){animation-delay:.4s}
-  .contact.in-view .crayon-rainbow .arcs path:nth-child(3){animation-delay:.7s}
-  .contact.in-view .crayon-rainbow .arcs path:nth-child(4){animation-delay:1.0s}
-  .contact.in-view .crayon-rainbow .arcs path:nth-child(5){animation-delay:1.3s}
-  .contact.in-view .crayon-rainbow .arcs path:nth-child(6){animation-delay:1.6s}
-  .contact.in-view .crayon-rainbow .clouds{
-    animation:cloud-pop .6s ease-out forwards;animation-delay:2.1s;
+  .contact.in-view .crayon-rainbow-img{
+    animation:rainbow-write 2.6s cubic-bezier(.42,0,.58,1) forwards;
   }
-  @keyframes draw-arc{to{stroke-dashoffset:0}}
-  @keyframes cloud-pop{
-    0%{opacity:0;transform:translateY(8px) scale(.94)}
-    100%{opacity:.85;transform:translateY(0) scale(1)}
+  @keyframes rainbow-write{
+    from{--sweep:0deg}
+    to  {--sweep:180deg}
+  }
+
+  /* color-name reveal, paced to match the sweep */
+  .contact.in-view .color-words span{opacity:.95;transform:translateY(0) rotate(var(--r,0deg))}
+  .contact.in-view .color-words .w-red   {transition-delay:.30s}
+  .contact.in-view .color-words .w-orange{transition-delay:.70s}
+  .contact.in-view .color-words .w-yellow{transition-delay:1.05s}
+  .contact.in-view .color-words .w-green {transition-delay:1.45s}
+  .contact.in-view .color-words .w-blue  {transition-delay:1.85s}
+  .contact.in-view .color-words .w-purple{transition-delay:2.20s}
+
+  @media (prefers-reduced-motion: reduce){
+    .crayon-rainbow-img{-webkit-mask-image:none;mask-image:none}
+    .color-words span{opacity:.95;transform:rotate(var(--r,0deg));transition:none}
+    .contact.in-view .crayon-rainbow-img{animation:none}
   }
 
   form.contact-form{
@@ -395,15 +428,24 @@
 </head>
 <body>
 
-<nav class="top">
-  <div>
+<a class="skip-link" href="#services">Saltar al contenido</a>
+<h1 class="sr-only">CHILD DOO — Niñeras en Tenerife</h1>
+
+<nav class="top" aria-label="Principal">
+  <div class="nav-left">
     <div class="brand-mini" aria-hidden="true">
       <span class="l1">c</span><span class="l2">h</span><span class="l3">i</span><span class="l4">l</span><span class="l5">d</span> <span class="l4">d</span><span class="l5">o</span><span class="l6">o</span>.
     </div>
-    <a href="#contact">contact us.</a>
+    <a href="#contact">contacto.</a>
   </div>
-  <a href="#services">our services</a>
-  <a href="#story">our story</a>
+  <a href="#services">servicios</a>
+  <a href="#why">ventajas</a>
+  <a href="#how">cómo</a>
+  <a href="#story">nosotros</a>
+  <!-- TODO Tino: replace href with real WhatsApp link (BRIEF §5) -->
+  <a class="nav-wa" href="#contact" aria-label="WhatsApp (próximamente)">
+    <span aria-hidden="true">💬</span> WhatsApp
+  </a>
 </nav>
 
 <section class="hero">
@@ -522,13 +564,15 @@
 <section class="block" id="story">
   <h2 class="section-title rainbow-text">our story</h2>
   <div class="story typewriter" data-typewriter>
-    <script type="text/template" class="tw-src"><p>child-doo was started by <strong>Melania Díaz</strong> — early-years educator, former London-based nanny, and specialist in <span class="rw"><span class="l1">c</span><span class="l2">h</span><span class="l3">i</span><span class="l4">l</span><span class="l5">d</span></span> Coaching and Emotional Intelligence. After years caring for <span class="rw"><span class="l6">f</span><span class="l1">a</span><span class="l2">m</span><span class="l3">i</span><span class="l4">l</span><span class="l5">i</span><span class="l6">e</span><span class="l1">s</span></span> in England, she came home to Tenerife to build the service she always wished families could find here.</p><p>Every <em>niñera</em> in our network is interviewed in person, reference-checked, background-verified and tested on the skills that matter — because that's the standard we'd want for our own <span class="rw"><span class="l1">k</span><span class="l3">i</span><span class="l5">d</span><span class="l6">s</span></span>.</p><blockquote class="founder-quote"><p>"Creo firmemente en la importancia de fomentar los <span class="rw"><span class="l1">i</span><span class="l2">d</span><span class="l3">i</span><span class="l4">o</span><span class="l5">m</span><span class="l6">a</span><span class="l1">s</span></span> desde <span class="rw"><span class="l2">p</span><span class="l3">e</span><span class="l4">q</span><span class="l5">u</span><span class="l6">e</span><span class="l1">ñ</span><span class="l2">o</span><span class="l3">s</span></span>, y considero que aporta un valor adicional en el desarrollo y educación de los <span class="rw"><span class="l4">n</span><span class="l5">i</span><span class="l6">ñ</span><span class="l1">o</span><span class="l2">s</span></span>."</p><cite>— Melania Díaz, fundadora</cite></blockquote><p class="story-meta">Auxiliar de educación infantil · Jardín de infantes · Coaching e Inteligencia Emocional Infantil y Juvenil</p></script>
+    <script type="text/template" class="tw-src"><p>child-doo started with one person's obsession — doing childcare properly. <strong>Melania Díaz</strong> spent years working as a nanny with families in England, learning hands-on how to keep kids genuinely entertained as well as safe.</p><p>Back home in Tenerife she trained formally as an <em>Auxiliar de Educación Infantil</em> and worked in kindergartens — putting the professional qualifications behind everything she'd picked up in living rooms and at playgroups.</p><p>Then she added the piece most agencies skip. She specialised in <strong>Child Coaching and Emotional Intelligence</strong>, so the carers in the child-doo network are briefed not just on logistics and safety but on how to support a child's emotional development during every hour they're together.</p><p>She founded child-doo because the service she wanted for her own family didn't exist on the island yet. So she built it — and she vets every carer to the standard she'd use for her own kids.</p><blockquote class="founder-quote"><p>"I firmly believe that nurturing languages from an early age brings real value to a child's development and education."</p><cite>— Melania Díaz, founder</cite></blockquote><p class="story-meta">Auxiliar de Educación Infantil · Kindergarten teacher · Child Coaching &amp; Emotional Intelligence specialist · Years of family nanny experience in England</p></script>
     <div class="tw-out" aria-live="polite" aria-label="Our story"><span class="tw-caret" aria-hidden="true"></span></div>
     <noscript>
-      <p>child-doo was started by <strong>Melania Díaz</strong> — early-years educator, former London-based nanny, and specialist in child Coaching and Emotional Intelligence. After years caring for families in England, she came home to Tenerife to build the service she always wished families could find here.</p>
-      <p>Every <em>niñera</em> in our network is interviewed in person, reference-checked, background-verified and tested on the skills that matter — because that's the standard we'd want for our own kids.</p>
-      <blockquote class="founder-quote"><p>"Creo firmemente en la importancia de fomentar los idiomas desde pequeños, y considero que aporta un valor adicional en el desarrollo y educación de los niños."</p><cite>— Melania Díaz, fundadora</cite></blockquote>
-      <p class="story-meta">Auxiliar de educación infantil · Jardín de infantes · Coaching e Inteligencia Emocional Infantil y Juvenil</p>
+      <p>child-doo started with one person's obsession — doing childcare properly. <strong>Melania Díaz</strong> spent years working as a nanny with families in England, learning hands-on how to keep kids genuinely entertained as well as safe.</p>
+      <p>Back home in Tenerife she trained formally as an <em>Auxiliar de Educación Infantil</em> and worked in kindergartens — putting the professional qualifications behind everything she'd picked up in living rooms and at playgroups.</p>
+      <p>Then she added the piece most agencies skip. She specialised in <strong>Child Coaching and Emotional Intelligence</strong>, so the carers in the child-doo network are briefed not just on logistics and safety but on how to support a child's emotional development during every hour they're together.</p>
+      <p>She founded child-doo because the service she wanted for her own family didn't exist on the island yet. So she built it — and she vets every carer to the standard she'd use for her own kids.</p>
+      <blockquote class="founder-quote"><p>"I firmly believe that nurturing languages from an early age brings real value to a child's development and education."</p><cite>— Melania Díaz, founder</cite></blockquote>
+      <p class="story-meta">Auxiliar de Educación Infantil · Kindergarten teacher · Child Coaching &amp; Emotional Intelligence specialist · Years of family nanny experience in England</p>
     </noscript>
   </div>
 </section>
@@ -537,23 +581,21 @@
   <h2 class="section-title rainbow-text">contact us</h2>
   <div class="contact-wrap">
 
-    <div class="rainbow-art" aria-hidden="true">
-      <!-- crayon rainbow + scribbled clouds, drawn on scroll into view -->
-      <svg class="crayon-rainbow" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
-        <g class="arcs" fill="none" stroke-linecap="round" stroke-width="28">
-          <path d="M40,290 Q60,260 90,235 Q160,170 250,160 Q345,170 415,235 Q445,260 460,290" stroke="#e63946" pathLength="100"/>
-          <path d="M70,290 Q90,265 120,245 Q180,195 250,188 Q325,195 385,245 Q415,265 430,290" stroke="#f4a261" pathLength="100"/>
-          <path d="M100,290 Q120,270 145,255 Q200,220 250,214 Q305,220 360,255 Q385,270 400,290" stroke="#e9c46a" pathLength="100"/>
-          <path d="M130,290 Q150,275 170,265 Q215,242 250,239 Q290,242 335,265 Q355,275 370,290" stroke="#2a9d8f" pathLength="100"/>
-          <path d="M160,290 Q175,280 195,272 Q225,260 250,258 Q280,260 310,272 Q330,280 340,290" stroke="#4361ee" pathLength="100"/>
-          <path d="M190,290 Q205,283 220,278 Q237,272 250,272 Q268,272 285,278 Q302,283 310,290" stroke="#7b2cbf" pathLength="100"/>
-        </g>
-        <!-- scribbled gray clouds at base -->
-        <g class="clouds" fill="#bbb" stroke="#888" stroke-width="2" stroke-linejoin="round" opacity="0">
-          <path d="M30,305 C25,290 50,280 70,288 C80,275 110,278 115,295 C130,290 145,305 135,318 C145,328 130,340 110,335 C100,348 70,346 60,335 C40,340 20,325 30,305 Z"/>
-          <path d="M340,300 C335,288 360,278 380,288 C395,275 425,282 425,300 C440,300 450,318 435,328 C445,340 425,348 410,340 C400,352 370,348 365,335 C345,338 330,318 340,300 Z"/>
-        </g>
-      </svg>
+    <div class="rainbow-art">
+      <!-- hand-drawn crayon rainbow — revealed with a conic sweep,
+           color names written on top as the sweep passes each arc -->
+      <div class="crayon-rainbow">
+        <img class="crayon-rainbow-img" src="rainbow.png"
+             alt="A child's crayon drawing of a rainbow with two clouds" />
+        <div class="color-words" aria-hidden="true">
+          <span class="w-red">red</span>
+          <span class="w-orange">orange</span>
+          <span class="w-yellow">yellow</span>
+          <span class="w-green">green</span>
+          <span class="w-blue">blue</span>
+          <span class="w-purple">purple</span>
+        </div>
+      </div>
     </div>
 
     <form class="contact-form" onsubmit="event.preventDefault();alert('Thanks! We will get back to you soon.');">
@@ -608,6 +650,105 @@
       });
     }, { threshold: 0.25 });
     targets.forEach(t => obs.observe(t));
+  })();
+
+  // 3) Typewriter: type out the story section character-by-character when it scrolls into view
+  (function typewriter(){
+    const story = document.querySelector('.typewriter');
+    if (!story) return;
+    const srcEl = story.querySelector('.tw-src');
+    const out = story.querySelector('.tw-out');
+    const caret = story.querySelector('.tw-caret');
+    if (!srcEl || !out || !caret) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const source = srcEl.textContent.trim();
+
+    function renderInstant(){
+      const tmp = document.createElement('div');
+      tmp.innerHTML = source;
+      while (tmp.firstChild) out.insertBefore(tmp.firstChild, caret);
+      story.classList.add('done');
+    }
+
+    function tokenize(html){
+      const wrap = document.createElement('div');
+      wrap.innerHTML = html;
+      const tokens = [];
+      function walk(node){
+        for (const c of node.childNodes){
+          if (c.nodeType === 3){
+            const text = c.textContent;
+            if (text.trim() === '') continue; // skip whitespace between block siblings
+            for (const ch of text) tokens.push({t:'c', ch});
+          } else if (c.nodeType === 1){
+            const attrs = {};
+            for (const a of c.attributes) attrs[a.name] = a.value;
+            tokens.push({t:'o', tag: c.tagName.toLowerCase(), attrs});
+            walk(c);
+            tokens.push({t:'x'});
+          }
+        }
+      }
+      walk(wrap);
+      return tokens;
+    }
+
+    function speed(ch){
+      if ('.!?'.indexOf(ch) >= 0) return 200;
+      if (',;:—–'.indexOf(ch) >= 0) return 130;
+      if (ch === ' ') return 24;
+      return 14 + Math.random() * 22;
+    }
+
+    function play(){
+      const tokens = tokenize(source);
+      let i = 0;
+      const stack = [out];
+      function placeCaret(parent){
+        if (caret.parentNode) caret.remove();
+        parent.appendChild(caret);
+      }
+      function step(){
+        if (i >= tokens.length){
+          story.classList.add('done');
+          return;
+        }
+        const t = tokens[i++];
+        const parent = stack[stack.length - 1];
+        if (t.t === 'o'){
+          const el = document.createElement(t.tag);
+          for (const k in t.attrs) el.setAttribute(k, t.attrs[k]);
+          parent.appendChild(el);
+          stack.push(el);
+          placeCaret(el);
+          setTimeout(step, 0);
+        } else if (t.t === 'x'){
+          stack.pop();
+          placeCaret(stack[stack.length - 1]);
+          setTimeout(step, 0);
+        } else {
+          parent.appendChild(document.createTextNode(t.ch));
+          placeCaret(parent);
+          setTimeout(step, speed(t.ch));
+        }
+      }
+      step();
+    }
+
+    if (reduced){ renderInstant(); return; }
+    if (!('IntersectionObserver' in window)){ play(); return; }
+
+    const obs = new IntersectionObserver(entries => {
+      for (const e of entries){
+        if (e.isIntersecting){
+          obs.disconnect();
+          play();
+          return;
+        }
+      }
+    }, { threshold: 0.25 });
+    obs.observe(story);
   })();
 </script>
 
